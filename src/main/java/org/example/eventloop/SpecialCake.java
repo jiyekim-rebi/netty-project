@@ -14,13 +14,13 @@ public class SpecialCake {
         doSomthing(); // 다른일을 함 :)
 
         if (future.isDone()) {
-            Cake cake = future.getCake();
+            //Cake cake = future.getCake();
         } else {
             while(future.isDone() != true) {
                 doSomthing();
             }
 
-            Cake cake = future.getCake();
+            //Cake cake = future.getCake();
         }
 
     }
