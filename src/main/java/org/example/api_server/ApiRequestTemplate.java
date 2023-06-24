@@ -1,22 +1,22 @@
 package org.example.api_server;
 
+import com.google.gson.JsonObject;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
-import org.example.ApiRequest;
 import org.example.api_server.exception.RequestParamException;
 import org.example.api_server.exception.ServiceException;
-import org.json.JSONObject;
+
 
 import java.util.Map;
 
 public abstract class ApiRequestTemplate implements ApiRequest {
     protected Logger logger;
     protected Map<String, String> reqData;
-    protected JSONObject apiResult;
+    protected JsonObject apiResult;
 
-    public ApiRequestTemplate(Map<String, String> reqData) {
+    protected ApiRequestTemplate(Map<String, String> reqData) {
         this.logger = LoggerFactory.getLogger(this.getClass());
-        this.apiResult = new JSONObject();
+        this.apiResult = new JsonObject();
         this.reqData = reqData;
 
         logger.debug("request data : " + this.reqData);
@@ -29,14 +29,14 @@ public abstract class ApiRequestTemplate implements ApiRequest {
             this.service();
         } catch (RequestParamException e) {
             logger.error(e.getMessage());
-            this.apiResult.append("resultCode", "405");
+            this.apiResult.addProperty("resultCode", "405");
         } catch (ServiceException e) {
             logger.error(e.getMessage());
-            this.apiResult.append("resultCode", "501");
+            this.apiResult.addProperty("resultCode", "501");
         }
     }
 
-    public JSONObject getApiResult() {
+    public JsonObject getApiResult() {
         return this.apiResult;
     }
 

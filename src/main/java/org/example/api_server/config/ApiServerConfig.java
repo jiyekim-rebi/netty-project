@@ -1,15 +1,13 @@
 package org.example.api_server.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import java.net.InetSocketAddress;
 
 @Configuration
+@ImportResource("classpath:application.properties")
 @ComponentScan("org.example.api_server")
 @PropertySource("classpath:api-server.properties")
 public class ApiServerConfig {

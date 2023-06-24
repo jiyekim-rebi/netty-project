@@ -2,7 +2,6 @@ package org.example.api_server;
 
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
-import org.example.ApiRequest;
 import org.example.SystemCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -46,7 +45,7 @@ public class ServiceDispatcher {
                     beanName = SystemCode.NOT_FOUND;
                     break;
             }
-        } else if (serviceUri.startsWith("/users")) {
+        } else if (serviceUri.startsWith("/mapper")) {
             beanName = SystemCode.USERS;
         } else {
             beanName = SystemCode.NOT_FOUND;

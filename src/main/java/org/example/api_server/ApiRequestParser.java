@@ -1,5 +1,6 @@
 package org.example.api_server;
 
+import com.google.gson.JsonObject;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 import io.netty.buffer.ByteBuf;
@@ -9,8 +10,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
-import org.example.ApiRequest;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,7 +23,7 @@ public class ApiRequestParser extends SimpleChannelInboundHandler<FullHttpMessag
     private static final Logger logger = LoggerFactory.getLogger(ApiRequestParser.class);
 
     private HttpRequest request;
-    private JSONObject apiResult;
+    private JsonObject apiResult;
     private static final HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
     private HttpPostRequestDecoder decoder;
     private Map<String, String> reqData = new HashMap<>();
