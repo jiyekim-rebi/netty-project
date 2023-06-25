@@ -4,3 +4,7 @@
 - spring framework(netty)
 - redis
 - mysql 8.1
+
+### site
+- http://netty.io
+- https://groups.google.com/forum/#!forum/netty-ko
